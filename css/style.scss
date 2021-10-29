@@ -1,0 +1,600 @@
+* {
+  margin: 0%;
+  padding: 0%;
+  box-sizing: border-box;
+}
+
+/***********variables**********/
+
+$font-family: "Raleway", sans-serif;
+$font-family-2: "Kalam", cursive;
+$primary-color: #c18a54;
+$text-color: #848484;
+$text-color-2: #505050;
+$text-color-3: #adadad;
+$text-color-4: #3a3a3a;
+$btn-color: #d9d9d9;
+$btn-color-2: #b37333;
+$primary-color: #c18b56;
+/************variables*******/
+
+/***********mixins************/
+
+@mixin flexy($jc, $ai) {
+  display: flex;
+  justify-content: $jc;
+  align-items: $ai;
+}
+
+/**********mixins*********/
+/***************header start****************/
+
+/************nav bar*****************/
+
+.nav-bar {
+  z-index: 9;
+  width: 100%;
+  height: 80px;
+  //background-color: darkviolet;
+  position: fixed;
+  border-bottom: 1px solid $text-color;
+
+  .container {
+    @include flexy(space-between, center);
+
+    .nav-logo {
+      height: 80px;
+      line-height: 80px;
+    }
+
+    .nav-links {
+      height: 80px;
+      // background-color: seagreen;
+      ul {
+        list-style: none;
+
+        li {
+          display: inline-block;
+          margin: 0% 10px;
+
+          a {
+            display: block;
+            height: 80px;
+            text-decoration: none;
+            color: $btn-color;
+            font-family: $font-family;
+            font-weight: 800;
+            text-align: center;
+            line-height: 90px;
+            font-size: 14px;
+          }
+        }
+      }
+    }
+
+    .icon-burger {
+      display: none;
+      width: 50px;
+      height: 50px;
+      cursor: pointer;
+      //border: 1px solid #fff;
+
+      .line {
+        width: 40px;
+        height: 3px;
+        background-color: $btn-color;
+        margin: 10px 0px;
+      }
+    }
+  }
+}
+
+.resp-nav {
+  z-index: 99;
+  position: fixed;
+  top: 80px;
+  width: 100%;
+  height: 0vh;
+  background-color: #232323;
+  padding-right: 40px;
+  overflow: hidden;
+  transition: all 0.4s ease-in-out;
+
+  ul {
+    list-style: none;
+
+    li {
+      border-bottom: 1px solid $text-color-3;
+
+      a {
+        display: block;
+        text-decoration: none;
+        padding: 20px 10px;
+        color: $text-color-3;
+        font-family: $font-family;
+        font-weight: 600;
+        transition: all 0.3s ease-in-out;
+
+        &:hover {
+          color: $btn-color;
+        }
+      }
+    }
+  }
+}
+.active {
+  height: 50vh;
+}
+
+@media screen and(max-width:1000px) {
+  .nav-bar {
+    .container {
+      .icon-burger {
+        display: block;
+      }
+    }
+
+    .nav-links {
+      display: none;
+    }
+  }
+}
+
+/**************nav bar end************/
+
+.landing-section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-color: darkslateblue;
+
+  .slider {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    overflow: hidden;
+    transition: all 1s ease-in-out;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(105.5%);
+    }
+
+    .inner-info {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+
+      .upper-logo {
+        // border: 1px solid #fff;
+
+        img {
+          width: 90px;
+          //height: 90px;
+        }
+      }
+
+      .middle-heading {
+        margin-top: 10px;
+        color: $primary-color;
+        //  border: 1px solid #fff;
+
+        h3 {
+          font-family: $font-family-2;
+          font-weight: 400;
+          font-size: 2rem;
+        }
+      }
+
+      .main-heading {
+        //   border: 1px solid #fff;
+        margin-top: 10px;
+        color: #fff;
+
+        h1 {
+          font-family: $font-family;
+          font-weight: 600;
+          font-size: 4.6rem;
+        }
+      }
+
+      .bottom-text {
+        margin-top: 10px;
+        //  border: 1px solid #fff;
+        padding: 0% 60px;
+        color: $btn-color;
+
+        p {
+          font-family: $font-family-2;
+        }
+      }
+    }
+  }
+  .s-active {
+    opacity: 1;
+    visibility: visible;
+
+    .bg-img {
+      animation: img-zoom 5s linear forwards;
+
+      @keyframes img-zoom {
+        0% {
+          transform: scale(100%);
+          filter: blur(2px);
+        }
+        100% {
+          transform: scale(106%);
+          filter: blur(0px);
+        }
+      }
+    }
+  }
+}
+
+/**************header end*********************/
+
+/************service we provide**********/
+
+.service-provide {
+  width: 100%;
+  height: auto;
+  background-color: #fff;
+  padding: 100px 0%;
+
+  .heading-sec {
+    text-align: center;
+    // border: 1px solid black;
+    padding: 0% 60px;
+
+    h4 {
+      font-family: $font-family;
+      color: $text-color-2;
+    }
+
+    p {
+      color: $text-color-3;
+      margin-top: 20px;
+      font-family: $font-family;
+      font-style: italic;
+
+      span {
+        color: $text-color;
+        font-family: $font-family;
+        font-style: italic;
+        font-weight: 700;
+      }
+    }
+  }
+
+  .card-section {
+    margin-top: 80px;
+    .image-card {
+      // border: 1px solid black;
+      img {
+        width: 100%;
+      }
+
+      .heading {
+        margin-top: 30px;
+        border-bottom: 1px solid $btn-color;
+
+        h3 {
+          font-family: $font-family;
+          color: $text-color-2;
+          font-size: 1.4rem;
+          font-weight: 400;
+        }
+      }
+
+      .details {
+        margin-top: 20px;
+
+        p {
+          font-family: $font-family;
+          font-weight: 400;
+          color: $text-color;
+          font-size: 1rem;
+          line-height: 27px;
+        }
+      }
+    }
+  }
+}
+
+/************service we provide************/
+
+/***************photo-gallery************/
+
+.photo-gallery {
+  width: 100%;
+  height: auto;
+  background-color: #fff;
+  padding: 100px 0%;
+
+  .gal-heading-sec {
+    text-align: center;
+    // border: 1px solid black;
+    padding: 0% 60px;
+
+    h4 {
+      font-family: $font-family;
+      color: $text-color-2;
+    }
+
+    p {
+      color: $text-color-3;
+      margin-top: 20px;
+      font-family: $font-family;
+      font-style: italic;
+    }
+
+    ul {
+      list-style: none;
+      margin-top: 50px;
+
+      li {
+        display: inline-block;
+        margin: 0% 10px;
+        font-family: $font-family;
+        font-weight: 600;
+        color: $text-color;
+        font-size: 14px;
+        text-transform: uppercase;
+      }
+    }
+  }
+  .gallery-section {
+    margin-top: 20px;
+
+    .gal-card {
+      box-shadow: 0px 6px 12px 2px rgba($color: #000000, $alpha: 0.15);
+
+      &:hover {
+        .image-section {
+          .overlay {
+            opacity: 1;
+            visibility: visible;
+          }
+          img {
+            transform: scale(110%);
+          }
+        }
+      }
+      .image-section {
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+        height: auto;
+        img {
+          width: 100%;
+          transition: all 0.3s ease-in-out;
+        }
+        .overlay {
+          z-index: 2;
+          opacity: 0;
+          visibility: hidden;
+          position: absolute;
+          top: 0%;
+          left: 0%;
+          width: 100%;
+          height: 100%;
+          background-color: rgba($color: #c18b56, $alpha: 0.6);
+          transition: all 0.3s ease-in-out;
+          @include flexy(center, center);
+
+          a {
+            text-decoration: none;
+            display: inline-block;
+            width: 60px;
+            height: 60px;
+            margin: 0% 10px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 60px;
+            color: #fff;
+            font-size: 1.5rem;
+
+            &:hover {
+              background-color: #fff;
+              color: $text-color-2;
+              box-shadow: 0px 6px 12px 2px rgba($color: #000000, $alpha: 0.2);
+              animation: anim 0.3s linear forwards;
+
+              @keyframes anim {
+                0% {
+                  transform: translateY(20px);
+                }
+                100% {
+                  transform: translateY(0px);
+                }
+              }
+            }
+          }
+        }
+      }
+
+      .gal-name {
+        padding: 20px 30px;
+
+        h6 {
+          @include flexy(space-between, center);
+          color: $text-color-2;
+          font-family: $font-family;
+          font-weight: 700;
+          font-size: 0.9rem;
+
+          span {
+            color: $text-color;
+            text-transform: uppercase;
+            font-family: $font-family;
+            font-weight: 400;
+            font-size: 0.9rem;
+          }
+        }
+      }
+    }
+  }
+  .transelate {
+    transform: translateY(-100px);
+  }
+}
+@media screen and(max-width:768px) {
+  .photo-gallery {
+    .transelate {
+      transform: translateY(0);
+    }
+    .gallery-section {
+      .col-md-4 {
+        margin-bottom: 40px;
+      }
+    }
+  }
+}
+/*************photo-gallery******************/
+
+/************tips-section************************/
+
+.tips-section {
+  width: 100%;
+  height: auto;
+
+  .container-fluid {
+    .tips-image {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      background-image: url("../img/tips/Home_7_groom_img.jpg");
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+
+      .groom-tip {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        border: 1px solid #fff;
+        padding: 30px 40px;
+        transform: translate(-50%, -50%);
+        text-align: center;
+
+        h5 {
+          color: $primary-color;
+          font-family: $font-family-2;
+          font-size: 1.8rem;
+        }
+        h1 {
+          color: #fff;
+          font-family: $font-family;
+          font-weight: 700;
+          font-size: 4rem;
+        }
+      }
+      .bride-tip {
+        border: 1px solid $text-color-4;
+        padding: 30px 45px;
+        h1 {
+          color: $text-color-4;
+        }
+      }
+    }
+    .tips-image-bride {
+      background-image: url("../img/tips/Home_7_bride_img.jpg");
+    }
+    .tip-description {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .inner-tip-desc {
+        width: 70%;
+
+        h1 {
+          font-family: $font-family;
+          font-weight: 400;
+          color: $text-color-2;
+          margin: 30px 0;
+          font-size: 2.3rem;
+        }
+        p {
+          font-family: $font-family;
+          font-weight: 400;
+          color: $text-color;
+          line-height: 30px;
+        }
+      }
+    }
+  }
+}
+
+/************tips-section*********************/
+
+/************client-reviews*****************/
+
+.client-reviews{
+  width: 100%;
+  height: 100vh;
+  background-color: #fff;
+  padding: 100px 0%;
+
+  .client-heading-sec {
+    text-align: center;
+    // border: 1px solid black;
+    padding: 0% 60px;
+
+    h4 {
+      font-family: $font-family;
+      color: $text-color-2;
+    }
+
+    p {
+      color: $text-color-3;
+      margin-top: 20px;
+      font-family: $font-family;
+      font-style: italic;
+    }
+  }
+
+  .client-reviews-sec{
+    width: 100%;
+    border: 1px solid black;
+    @include flexy(center,center );
+    margin-top: 30px;
+
+    .image-sec{
+      width: 100px;
+      position: relative;
+      img{
+        border: 1px solid white;
+        border-radius: 50%;
+        box-shadow: 0px 6px 12px 2px rgba($color: #000000, $alpha: 0.2);
+      
+      }
+      &::before{
+        content: "99";
+        color: white;
+        text-align: center;
+        line-height: 50px;
+        font-size: 1.5rem;
+        position: absolute;
+        right: -20%;
+        top: 0%;
+        width: 50px;
+        height: 50px;
+        border: 2px solid white;
+        border-radius: 50%;
+        background-color: $primary-color;
+        box-shadow: 0px 6px 12px 2px rgba($color: #000000, $alpha: 0.2);
+      }
+    }
+  }
+}
+
+/************client-reviews*****************/
